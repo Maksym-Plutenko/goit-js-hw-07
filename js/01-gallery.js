@@ -19,13 +19,6 @@ galleryItems.forEach(item => {
     `);
 });
 
-// const handleEsc = event => {
-//     if (event.code === 'Escape') {
-//         image.close();
-//         console.log('Yeah!');
-//     }
-// }
-
 // fullsize image showing
 let image;
 
@@ -47,5 +40,5 @@ function handleEsc(event) {
     }
 }
 
-
+// maybe code for the testing
 console.log(galleryItems);
