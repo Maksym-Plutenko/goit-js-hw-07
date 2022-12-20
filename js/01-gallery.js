@@ -1,6 +1,7 @@
 import { galleryItems } from './gallery-items.js';
 // Change code below this line
 
+// gallery creation
 const gallery = document.querySelector('.gallery');
 
 galleryItems.forEach(item => {
@@ -18,12 +19,33 @@ galleryItems.forEach(item => {
     `);
 });
 
+// const handleEsc = event => {
+//     if (event.code === 'Escape') {
+//         image.close();
+//         console.log('Yeah!');
+//     }
+// }
+
+// fullsize image showing
+let image;
+
 gallery.addEventListener('click', event => {
     event.preventDefault();
 
-    basicLightbox.create(`
+    image = basicLightbox.create(`
 		<img width="1400" height="900" src=${event.target.dataset.source}>
-	`).show()
+	`);
+    image.show();
+
+    document.addEventListener('keydown', handleEsc);
 });
+
+function handleEsc(event) {
+    if (event.code === 'Escape') {
+        image.close();
+        document.removeEventListener('keydown', handleEsc);
+    }
+}
+
 
 console.log(galleryItems);
